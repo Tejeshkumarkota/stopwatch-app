@@ -1,0 +1,14 @@
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 500px;
+    margin: auto;
+}
+
+.display-4 {
+    font-size: 3rem;
+    letter-spacing: 0.1em;
+}
