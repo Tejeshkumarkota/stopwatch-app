@@ -7,7 +7,9 @@ const timeDisplay = document.getElementById('time-display');
 const startPauseButton = document.getElementById('start-pause-button');
 const stopButton = document.getElementById('stop-button');
 const resetButton = document.getElementById('reset-button');
+const icon = document.getElementById('icon');
 
+// Update Display functionality
 function updateDisplay(time) {
     const hours = Math.floor(time / 3600000);
     const minutes = Math.floor((time % 3600000) / 60000);
@@ -15,12 +17,13 @@ function updateDisplay(time) {
 
     timeDisplay.textContent = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
 }
-
+// Start or pause functionality
 function startPause() {
     if (isRunning) {
         clearInterval(timer);
         isRunning = false;
-        startPauseButton.textContent = 'Start';
+        icon.classList.remove('bi-pause-circle');
+        icon.classList.add('bi-play-circle');
     } else {
         startTime = Date.now() - elapsedTime;
         timer = setInterval(() => {
@@ -28,10 +31,11 @@ function startPause() {
             updateDisplay(elapsedTime);
         }, 1000);
         isRunning = true;
-        startPauseButton.textContent = 'Pause';
+        icon.classList.remove('bi-play-circle');
+        icon.classList.add('bi-pause-circle');
     }
 }
-
+// Stop functionality
 function stop() {
     if (isRunning) {
         clearInterval(timer);
@@ -39,21 +43,24 @@ function stop() {
         setTimeout(() => {
             elapsedTime = 0;
             updateDisplay(elapsedTime);
-            startPauseButton.textContent = 'Start';
+            icon.classList.remove('bi-pause-circle');
+            icon.classList.add('bi-play-circle');
         },1000)
     } else {
         elapsedTime = 0;
         updateDisplay(elapsedTime);
-            startPauseButton.textContent = 'Start';
+        icon.classList.remove('bi-pause-circle');
+        icon.classList.add('bi-play-circle');
     }
 }
-
+// Reset functionality
 function reset() {
     clearInterval(timer);
     isRunning = false;
     elapsedTime = 0;
     updateDisplay(elapsedTime);
-    startPauseButton.textContent = 'Start';
+    icon.classList.remove('bi-pause-circle');
+    icon.classList.add('bi-play-circle');
 }
 
 startPauseButton.addEventListener('click', startPause);

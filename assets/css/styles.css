@@ -1,14 +1,41 @@
 body {
-    background-color: #f8f9fa;
-    font-family: Arial, sans-serif;
+    background-color: #41464b;
+    font-family: 'Poppins', sans-serif;
+    font-weight: normal;
 }
-
 .container {
-    max-width: 500px;
+    max-width: 400px;
     margin: auto;
 }
-
-.display-4 {
-    font-size: 3rem;
+.card {
+    border-radius: 15px;
+    border: none;
+    background-color: #ffffff;
+}
+.display-4,
+.display-text {
+    color: #333333;
     letter-spacing: 0.1em;
 }
+.display-text {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+}
+.btn {
+    min-width: 80px;
+    font-size: 1.2rem;
+}
+.btn-group {
+    border-radius: 30px;
+}
+.btn-group .btn:first-child {
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+.btn-group .btn:last-child {
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+/* .btn:focus {
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+} */
