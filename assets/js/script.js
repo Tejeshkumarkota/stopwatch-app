@@ -45,7 +45,7 @@ function stop() {
             updateDisplay(elapsedTime);
             icon.classList.remove('bi-pause-circle');
             icon.classList.add('bi-play-circle');
-        },1000)
+        },0)
     } else {
         elapsedTime = 0;
         updateDisplay(elapsedTime);
@@ -66,3 +66,8 @@ function reset() {
 startPauseButton.addEventListener('click', startPause);
 stopButton.addEventListener('click', stop);
 resetButton.addEventListener('click', reset);
+
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+})
